@@ -9,6 +9,8 @@ import { ProductComponent } from './products/product.component';
 import { ShoppingCartComponent } from './shopping-cart/cart.component';
 import { HomeComponent } from './home/home.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { Product } from './products/product';
+import { AlertComponent } from './alert/alert.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,11 +23,13 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent,
+
     HomeComponent,
+    ShoppingCartComponent,
+
     ProductListComponent,
-    HomeComponent,
-    ShoppingCartComponent
+    ProductComponent,
+    AlertComponent
   ],
 
   imports: [
@@ -35,7 +39,9 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
 
-  providers: [],
+  providers: [
+    Product
+  ],
 
   bootstrap: [AppComponent]
 })

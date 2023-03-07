@@ -1,0 +1,24 @@
+.product {
+    padding: 20px;
+    background-color: rgb(242, 242, 242);
+}
+
+.title {
+    display: flex;
+    font-weight: 600;
+    font-size: 20px;
+}
+.navigate-btn {
+    display: flex;
+    justify-content:  space-between;
+}
+
+.share-btn {
+    padding: 10px;
+    border: none;
+    color: rgb(8, 11, 57);
+    background-color: rgb(255, 255, 255);
+}
+.share-btn:hover {
+    cursor: pointer;
+}

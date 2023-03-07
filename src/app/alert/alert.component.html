@@ -1,0 +1,5 @@
+<div *ngIf="product && product.price > 700">
+    <button type="button" class="share-btn" (click)="notify.emit()">
+        Thông báo cho tôi
+    </button>
+</div>

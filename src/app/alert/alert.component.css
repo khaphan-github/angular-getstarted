@@ -1,0 +1,9 @@
+.share-btn {
+    padding: 10px;
+    border: none;
+    color: rgb(8, 11, 57);
+    background-color: rgb(255, 255, 255);
+}
+.share-btn:hover {
+    cursor: pointer;
+}

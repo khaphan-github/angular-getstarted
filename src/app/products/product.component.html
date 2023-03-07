@@ -1,7 +1,35 @@
-<div>Chi Tiết Sản Phẩm </div>
-<div>
-    <span>Tên sản phẩm: {{name}}</span>
-    <img src="{{image}}" alt="product image"/>
-    <span>{{price}}</span> <br>
-    <span>Mô tả sản phẩm: {{desc}}</span>
+<div class="product">
+    <img width="100%" src="{{productItem.image}}" alt="product-image" />
+
+    <p style="font-size: 16px;">
+        Tên sản phẩm:
+        <strong>
+            {{productItem.name}}
+        </strong>
+    </p>
+
+    <p>
+        Giá:
+        <strong>
+            {{productItem.price}}
+        </strong>
+    </p>
+
+    <p *ngIf="productItem.desc">
+        <strong>Mô tả sản phẩm: </strong>
+        <br>
+        {{productItem.desc}}
+    </p>
+
+    <div class="navigate-btn">
+        <button type="button" class="share-btn">
+            Chia sẽ
+        </button>
+
+        <app-product-alerts 
+            [product]="productItem" 
+            (notify)="onNotifyWhenProductSaleByName(productItem.name)"
+        />
+        
+    </div>
 </div>
