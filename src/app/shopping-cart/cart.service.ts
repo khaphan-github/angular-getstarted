@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../products/product';
 
@@ -16,7 +17,9 @@ export class CartService {
     }
   ];
 
-  constructor() {  }
+  constructor(
+    private http: HttpClient
+  ) {  }
 
   public addProductToCart = (product: Product) => {
     if (product) {
@@ -36,5 +39,8 @@ export class CartService {
       this.productsIncart.pop();
       console.log('clear cart success');
     }
+  }
+  public getShippingPrices = () => {
+    return this.http.get<{type: string, price: number}[]>('/assets/shipping.json');
   }
 }
