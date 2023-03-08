@@ -1,35 +1,41 @@
-<div class="product">
-    <img width="100%" src="{{productItem.image}}" alt="product-image" />
-
-    <p style="font-size: 16px;">
-        Tên sản phẩm:
-        <strong>
-            {{productItem.name}}
-        </strong>
-    </p>
-
-    <p>
-        Giá:
-        <strong>
-            {{productItem.price}}
-        </strong>
-    </p>
-
-    <p *ngIf="productItem.desc">
-        <strong>Mô tả sản phẩm: </strong>
-        <br>
-        {{productItem.desc}}
-    </p>
-
-    <div class="navigate-btn">
-        <button type="button" class="share-btn">
-            Chia sẽ
-        </button>
-
-        <app-product-alerts 
-            [product]="productItem" 
-            (notify)="onNotifyWhenProductSaleByName(productItem.name)"
-        />
-        
-    </div>
+<div *ngIf="productItem.id !== ''; then productfound else noproductfound">
 </div>
+<ng-template #productfound>
+    <div class="product">
+        <img width="100%" src="{{productItem.image}}" alt="product-image" />
+
+        <a style="font-size: 16px;">
+            Tên sản phẩm:
+            <strong>
+                {{productItem.name}}
+            </strong>
+        </a>
+
+        <p>
+            Giá:
+            <strong>
+                {{productItem.price}}
+            </strong>
+        </p>
+
+        <p *ngIf="productItem.desc">
+            <strong>Mô tả sản phẩm: </strong>
+            <br>
+            {{productItem.desc}}
+        </p>
+
+        <div class="navigate-btn">
+            <button type="button" class="share-btn" (click)="alertProductToShareByName(productItem.name)">
+                Chia sẽ
+            </button>
+
+            <app-product-alerts [product]="productItem" (notify)="onNotifyWhenProductSaleByName(productItem.name)" />
+
+        </div>
+    </div>
+
+</ng-template>
+
+<ng-template #noproductfound>
+    <h3>Không tìm thấy sản phẩm </h3>
+</ng-template>

@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { Product } from './products/product';
 import { AlertComponent } from './alert/alert.component';
+import { ProductListService } from './product-list/product-list.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,7 +41,8 @@ const routes: Routes = [
   ],
 
   providers: [
-    Product
+    Product,
+    ProductListService
   ],
 
   bootstrap: [AppComponent]
