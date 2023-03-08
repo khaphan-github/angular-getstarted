@@ -12,13 +12,14 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { Product } from './products/product';
 import { AlertComponent } from './alert/alert.component';
 import { ProductListService } from './product-list/product-list.service';
+import { ShippingComponent } from './shipping/shipping.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'products/:productId', component: ProductComponent },
   { path: 'products', component: ProductListComponent },
   { path: 'shopping-cart', component: ShoppingCartComponent },
-
+  { path: 'shipping', component: ShippingComponent },
 ];
 
 @NgModule({
@@ -27,7 +28,7 @@ const routes: Routes = [
 
     HomeComponent,
     ShoppingCartComponent,
-
+    ShippingComponent,
     ProductListComponent,
     ProductComponent,
     AlertComponent

@@ -1,7 +1,6 @@
-
 <div *ngIf='ProductList && ProductList.length'>
     <div class="product-element">
-<h1>Giỏ hàng</h1>
+        <h1>Giỏ hàng</h1>
 
         <div *ngFor="let product of ProductList">
             <div class="product-items">
@@ -10,6 +9,9 @@
                 <button type="button" class="" (click)="removeProductFromCart(product)">Xóa</button>
             </div>
         </div>
+    </div>
+    <div class="purchase">
+        <button type="button" routerLink="/shipping">Thanh toán</button>
     </div>
 </div>
 <div *ngIf='ProductList && ProductList.length === 0'>
