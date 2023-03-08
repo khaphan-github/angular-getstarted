@@ -6,9 +6,17 @@ import { Product } from '../products/product';
 })
 export class CartService {
 
-  private productsIncart: Array<Product> = [];
+  productsIncart: Array<Product> = [
+    {
+      id: "3",
+      image: "https://cdn1.viettelstore.vn/images/Product/ProductImage/medium/14%20plus-2.jpeg",
+      name: "Phone 03",
+      desc: "Hero agency is planning an ad campaign with several different ads cycling through the banner. New ad components are added frequently by several different teams",
+      price: 292000
+    }
+  ];
 
-  constructor() { }
+  constructor() {  }
 
   public addProductToCart = (product: Product) => {
     if (product) {

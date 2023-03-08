@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Product } from '../products/product';
+import { CartService } from './cart.service';
 
 @Component({
     selector: 'app-shopping-cart',
@@ -8,12 +10,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class ShoppingCartComponent implements OnInit {
-    
-    
-    constructor(private route: ActivatedRoute) {
-    }
+    ProductList: Array<Product> = this.cartService.getProductsFromCart();
+
+    constructor(
+        private route: ActivatedRoute,
+        private cartService: CartService
+    ) { }
 
     ngOnInit(): void {
         const routeParams = this.route.snapshot.paramMap;
+    }
+    removeProductFromCart = (product: Product): void => {
+      
     }
 }

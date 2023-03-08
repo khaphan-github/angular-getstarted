@@ -1,0 +1,11 @@
+.product-element {
+    background-color: rgb(220, 220, 220);
+    padding: 10px;
+}
+
+.product-items {
+    padding: 10px; 
+    background-color: aliceblue;
+    font-size: 15px;
+    margin: 5px;
+}

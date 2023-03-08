@@ -1,1 +1,17 @@
+
+<div *ngIf='ProductList && ProductList.length'>
+    <div class="product-element">
 <h1>Giỏ hàng</h1>
+
+        <div *ngFor="let product of ProductList">
+            <div class="product-items">
+                <span>Tên sản phẩm:<strong> {{product.name}}</strong></span>
+                <span> Giá bán: <strong> {{product.price}}</strong></span>
+                <button type="button" class="" (click)="removeProductFromCart(product)">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf='ProductList && ProductList.length === 0'>
+    <span>Không có sản phẩm trong giỏ hàng</span>
+</div>
