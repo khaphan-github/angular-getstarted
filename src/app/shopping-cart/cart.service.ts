@@ -34,8 +34,8 @@ export class CartService {
     return this.productsIncart;
   }
   
-  public clearCart = () => {
-    while(this.productsIncart.length > 0) {
+  public clearCart = (productList: Array<Product>) => {
+    while(productList.length > 0) {
       this.productsIncart.pop();
       console.log('clear cart success');
     }

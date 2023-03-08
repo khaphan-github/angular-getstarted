@@ -9,10 +9,24 @@
                 <button type="button" class="" (click)="removeProductFromCart(product)">Xóa</button>
             </div>
         </div>
+        <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+            <div>
+                <label for="name">
+                    Name
+                </label>
+                <input class="input-box" id="name" type="text" formControlName="name">
+            </div>
+
+            <div>
+                <label for="address">
+                    Address
+                </label>
+                <input class="input-box" id="address" type="text" formControlName="address">
+            </div>
+            <button class="share-btn" type="submit">Thanh toán</button>
+        </form>
     </div>
-    <div class="purchase">
-        <button type="button" routerLink="/shipping">Thanh toán</button>
-    </div>
+
 </div>
 <div *ngIf='ProductList && ProductList.length === 0'>
     <span>Không có sản phẩm trong giỏ hàng</span>
