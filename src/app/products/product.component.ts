@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductListService } from '../product-list/product-list.service';
+import { CartService } from '../shopping-cart/cart.service';
 import { Product } from './product';
 
 @Component({
@@ -10,10 +11,13 @@ import { Product } from './product';
 })
 
 export class ProductComponent implements OnInit {
-  @Input() productItem: Product  = new Product();
+  @Input() productItem: Product = new Product();
 
-  constructor(private route: ActivatedRoute,private productsService: ProductListService) {
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private productsService: ProductListService,
+    private cartService: CartService
+  ) { }
 
   ngOnInit() {
     // First get the product id from the current route.
@@ -22,13 +26,13 @@ export class ProductComponent implements OnInit {
     // Find the product that correspond with the id provided in route.
     if (productIdFromRoute) {
       this.productsService
-      .getProductById(productIdFromRoute.toString())
-      .then((product) => {
-        this.productItem = product;
-      })
-      .catch((error) => {
-        console.error(error);
-      })
+        .getProductById(productIdFromRoute.toString())
+        .then((product) => {
+          this.productItem = product;
+        })
+        .catch((error) => {
+          console.error(error);
+        })
     }
   }
 
@@ -38,5 +42,11 @@ export class ProductComponent implements OnInit {
 
   onNotifyWhenProductSaleByName(productName?: string) {
     alert("Chúng tôi sẽ thông báo cho bạn mỗi khi sản phẩm " + productName + " giảm giá!");
+  }
+
+  addProductToCart(product: Product) {
+    confirm("Bạn muốn thêm sản phẩm " + product.name + " vào giỏ hàng?");
+    this.cartService.addProductToCart(product);
+    console.log('Add product to cart success');
   }
 }

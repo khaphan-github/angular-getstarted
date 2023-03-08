@@ -25,8 +25,8 @@
         </p>
 
         <div class="navigate-btn">
-            <button type="button" class="share-btn" (click)="alertProductToShareByName(productItem.name)">
-                Chia sẽ
+            <button type="button" class="share-btn" (click)="addProductToCart(productItem)">
+                Mua ngay
             </button>
 
             <app-product-alerts [product]="productItem" (notify)="onNotifyWhenProductSaleByName(productItem.name)" />
