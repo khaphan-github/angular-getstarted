@@ -10,7 +10,6 @@ import { ProductListService } from './product-list.service';
 })
 export class ProductListComponent {
 
-  @ViewChild(ProductComponent) child: ProductComponent | undefined;
   products: Array<Product> = [];
 
   constructor (productsService: ProductListService) {

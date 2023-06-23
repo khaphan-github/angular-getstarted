@@ -13,6 +13,9 @@ import { Product } from './products/product';
 import { AlertComponent } from './alert/alert.component';
 import { ProductListService } from './product-list/product-list.service';
 import { ShippingComponent } from './shipping/shipping.component';
+import { PostComponent } from './post/post.component';
+import { CreatePostComponent } from './create-post/create-post.component';
+import { PostService } from './services/post.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,6 +23,8 @@ const routes: Routes = [
   { path: 'products', component: ProductListComponent },
   { path: 'shopping-cart', component: ShoppingCartComponent },
   { path: 'shipping', component: ShippingComponent },
+  { path: 'posts', component: PostComponent },
+  { path: 'create-post', component: CreatePostComponent }
 ];
 
 @NgModule({
@@ -31,7 +36,9 @@ const routes: Routes = [
     ShippingComponent,
     ProductListComponent,
     ProductComponent,
-    AlertComponent
+    AlertComponent,
+    PostComponent,
+    CreatePostComponent
   ],
 
   imports: [
@@ -44,7 +51,8 @@ const routes: Routes = [
 
   providers: [
     Product,
-    ProductListService
+    ProductListService,
+    PostService,
   ],
 
   bootstrap: [AppComponent]
